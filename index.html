@@ -105,7 +105,7 @@
             "no" : "N"
             };
            function createRow(n,val) {
-               console.log(map[n[val]]+" "+n[val]);
+//               console.log(map[n[val]]+" "+n[val]);
                
                if(n[val] === "")  {
                     
@@ -134,7 +134,7 @@
                 var chart = d3.select("#legends")
 
                 var legend = chart.selectAll(".legend")
-                  .data([{"color":"#9FF781","text":"Present"},{"color":"#ffff80","text":"Absent"},{"color":"#E6A745","text":"Good"},{"color":"#FFC300","text":"Bad"}])
+                  .data([{"color":"#9FF781","text":"Present"},{"color":"#ffff80","text":"Absent"},{"color":"#2332B8","text":"Good"},{"color":"#FFC300","text":"Bad"}])
                    .enter().append("g")
                   .attr("class", "legend")
                   .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
@@ -216,7 +216,7 @@
                        ],
                        createdRow: function ( row, data, index ) {
                            if ( $(data[24]).attr('title')==="good"  ) {
-                               $('td', row).eq(24).attr('bgcolor',"#E6A745");
+                               $('td', row).eq(24).attr('bgcolor',"#2332B8");
                            }
                            else{
                                $('td', row).eq(24).attr('bgcolor',"#FFC300");
