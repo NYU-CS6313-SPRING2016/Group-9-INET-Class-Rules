@@ -1,0 +1,56 @@
+Relation:     german_credit
+Instances:    1000
+Attributes:   21
+              checking_status
+              duration
+              credit_history
+              purpose
+              credit_amount
+              savings_status
+              employment
+              installment_commitment
+              personal_status
+              other_parties
+              residence_since
+              property_magnitude
+              age
+              other_payment_plans
+              housing
+              existing_credits
+              job
+              num_dependents
+              own_telephone
+              foreign_worker
+              class
+
+Number of Rules  : 	79
+
+
+Time taken to build model: 0.11 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         702               70.2    %
+Incorrectly Classified Instances       298               29.8    %
+Kappa statistic                          0.2767
+Mean absolute error                      0.3245
+Root mean squared error                  0.4974
+Relative absolute error                 77.2302 %
+Root relative squared error            108.5412 %
+Total Number of Instances             1000     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.801     0.53       0.779     0.801     0.79       0.658    good
+                 0.47      0.199      0.504     0.47      0.486      0.658    bad
+Weighted Avg.    0.702     0.431      0.696     0.702     0.699      0.658
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 561 139 |   a = good
+ 159 141 |   b = bad
+
+

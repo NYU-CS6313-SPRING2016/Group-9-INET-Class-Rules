@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/External/bootstrap.min.css">
+       
+    <script src="js/External/jquery-2.2.3.min.js"></script>
+    <script src="js/External/d3.min.js"></script>  
+    <link rel="stylesheet" href="css/External/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.1/css/fixedColumns.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
+    <script src="js/External/d3.min.js"></script>
+    <script src="js/External/d3.tip.v0.6.3.js"></script>
+    <script src="js/External/jquery-1.12.0.min.js"></script>  
+    <script src="js/External/jquery.dataTables.min.js"></script>  
+    <script src="js/External/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/t/dt/dt-1.10.11/datatables.min.css"/>
+    <title>CreditVis</title>    
+    <script type="text/javascript" src="https://cdn.datatables.net/t/dt/dt-1.10.11/datatables.min.js"></script> 
+    <script src="js/External/bootstrap.min.js"></script>
+    <script src="js/External/bootstrap-slider.js"></script>
+    <link rel="stylesheet" href="css/External/bootstrap-slider.css">
+    <script src="js/External/jquery.dataTables.min.js"></script>
+     <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedcolumns/3.2.1/js/dataTables.fixedColumns.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/t/dt/dt-1.10.11/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/t/dt/dt-1.10.11/datatables.min.js"></script>
+    <script src="js/dataPoints.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript">
+           var map = {"no checking" : "NC",
+            ">=200" : "200:",
+            "0<=X<200": " 0:200",
+            "<0": ":0",
+            "critical/other existing credit" : "O",
+            "existing paid" : "EP",
+            "delayed previously" : "DP",
+            "no credits/all paid" : "P",
+            "all paid":"AP",
+            "other":"Oth",
+            "radio/tv" : "R/TV",
+            "used car" : "uC",
+            "skilled":"S",
+            "new car" : "nC",
+            "education" : "Edu",
+            "repairs": "R",
+            "furniture/equipment" : "FE",
+            "<= 8133" : ":8133",
+            "> 8133" : "8133:",
+            "> 2181": "2181:",
+            "> 1474" : "1474:",
+            ">=1000": "10K:",
+            "no known savings" : "NS",
+            "100<=X<500" : "100:500",
+            "4<=X<7" : "4:7",
+            ">=7": "7:",
+            "1<=X<4": "1:4",
+            "<100":":100",
+            "> 16": "16:",
+            "<= 30": ":30",
+            "<= 15": ":15",
+            "<= 33": ":33",
+            "> 16": "16:",
+            "> 2": "2:",
+            "> 3":"3:",
+            "male single": "M",
+            "female div/dep/mar": "F",
+            "guarantor": "G",
+            "co applicant":"CoP",
+            "none":"NA",
+            ">22":"22:",
+            "<= 1":":1",
+            "> 1":"1:",
+            "business":"BS",
+            "> 42":"42:",
+            "> 30":"30:",
+            "> 16":"16:",
+            "<= 33":":33",
+            "<= 30":":30",
+            "<= 15":":15",
+            "<= 11":":11",
+            "<= 1":":1",
+            "> 2":"2:",
+            "> 3":"3:",
+            "<= 3":":3",
+            "<= 2":":2",
+            "<= 1":":1",
+            "> 23":"23:",
+            "> 22":"22:",
+            "500<=X<1000":"500:1K",
+            "car":"C",
+            "life insurance": "LI",
+            "real estate": "RE",
+            "bank":"B",
+            "stores" : "S",
+            "rent":"R",
+            "own": "ON",
+            "unskilled resident" : "UR",
+            "skilled resident" : "SR",
+            "yes":"Y",
+            "no" : "N"
+            };
+           function createRow(n,val) {
+               console.log(map[n[val]]+" "+n[val]);
+               
+               if(n[val] === "")  {
+                    
+                        return "<div title = '"+n[val]+"' style='background-color:#ffff80'><p style='visibility:hidden'>hidden</p></div>";  
+                    
+                }
+                else    {
+                    
+                        return "<div title = '"+n[val]+"' style='background-color:#9FF781'><p>"+map[n[val]]+"</p></div>"; 
+                  
+                }
+           }
+                           
+                               
+        
+            $(window).load(function() {
+                $("#ex6").slider();
+                $("#ex6").on("slide", function(slideEvt) {
+                        $("#ex6SliderVal").text(slideEvt.value);
+                });
+              
+                renderDataPoints();
+            });
+            $(document).ready(function() {
+                
+                var chart = d3.select("#legends")
+
+                var legend = chart.selectAll(".legend")
+                  .data([{"color":"#9FF781","text":"Present"},{"color":"#ffff80","text":"Absent"},{"color":"#E6A745","text":"Good"},{"color":"#FFC300","text":"Bad"}])
+                   .enter().append("g")
+                  .attr("class", "legend")
+                  .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+                // draw legend colored rectangles
+                legend.append("rect")
+                  .attr("x", 80)
+                  .attr("width", 10)
+                  .attr("height", 10)
+                  .style("fill", function(d, i) { return  d.color; });
+
+                // draw legend text
+                legend.append("text")
+                  .attr("x", 80+50)
+                  .attr("y", 7)
+                  .attr("dy", ".35em")
+                  .style("text-anchor", "end")
+                  .text(function(d, i) { return  d.text; });
+                
+                
+                
+                
+                var data = [];
+                d3.json("data/rules.json", function(root) {
+                    var data = [];
+                    max = d3.max(root, function(d) { return d.length; });
+                    maxMultiply = 50/max;
+                    
+
+                    for(i =0;i<root.length;i++) {
+                        row = [];
+                        row.push('<div id = "'+root[i]["Rule_no"].replace(" ",'')+'">'+root[i]["Rule_no"].split(" ")[1]+'</div>');
+                        row.push(createRow(root[i],"checking_status"));
+                        row.push(createRow(root[i],"credit_history"));
+                        row.push(createRow(root[i],"purpose"));
+                        row.push(createRow(root[i],"credit_amount"));
+                        row.push(createRow(root[i],"savings_status"));
+                        row.push(createRow(root[i],"employment"));
+                        row.push(createRow(root[i],"duration"));
+                        row.push(createRow(root[i],"installment_commitment"));
+                        row.push(createRow(root[i],"personal_status"));
+                        row.push(createRow(root[i],"other_parties"));
+                        row.push(createRow(root[i],"residence_since"));
+                        row.push(createRow(root[i],"property_magnitude"));
+                        row.push(createRow(root[i],"age"));
+                        row.push(createRow(root[i],"other_payment_plans"));
+                        row.push(createRow(root[i],"housing"));
+                        row.push(createRow(root[i],"existing_credits"));
+                        row.push(createRow(root[i],"job"));
+                        row.push(createRow(root[i],"num_dependents"));
+                        row.push(createRow(root[i],"own_telephone"));
+                        row.push(createRow(root[i],"foreign_worker"));
+                        row.push(root[i]["coverage"]);
+                        row.push(root[i]["accuracy"]);
+                        width = parseInt(root[i]["length"]) * maxMultiply;
+                        row.push("<div style='width:"+width+"px;height: 17px;border:1px solid #000;color: cornflowerblue;background: #ccc;' title='Length : "+root[i]['length']+"'><p style='visibility:hidden>"+(+root[i]['length'])+"</p></div>");
+                       row.push("<div title='"+root[i]["class"]+"' id = '"+root[i]["Rule_no"].replace(" ",'')+"' class='credit_rating"+root[i]["class"]+"'><p style='visibility:hidden>"+root[i]["class"]+"</p></div>");
+                        
+                        data.push(row);
+                    }
+                 
+                    
+                    var table = $('#example').removeAttr('width').DataTable( {
+                        data: data,
+                        scrollY:        "550px",
+                        scrollX:        "400px",
+                        scrollCollapse: true,
+                        paging:         false,
+                        scroller:       true,
+                        filter:false,
+                        fixedColumns:   {
+                                leftColumns: 1,
+                                rightColumns: 1
+                            },
+                       columnDefs: [
+                           { sortable: false, targets: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20] },
+                           { width: 50, targets: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,24] },
+                           { height: 30, targets: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,24] }
+                       ],
+                       createdRow: function ( row, data, index ) {
+                           if ( $(data[24]).attr('title')==="good"  ) {
+                               $('td', row).eq(24).attr('bgcolor',"#E6A745");
+                           }
+                           else{
+                               $('td', row).eq(24).attr('bgcolor',"#FFC300");
+                           }
+                           }
+                       
+                        
+                        } );
+                    
+                    
+                    $('tbody')
+                        .on( 'mouseenter', 'tr', function () {
+                            
+                            $(this).addClass( 'highlight' );
+                            id = $(this).children(":first").children(":first").attr("id");
+                            $("table #"+id).parent().parent().addClass('highlight' );
+                            select = "circle#"+$(this).children(":first").children(":first").attr("id");
+                            $(select).css("stroke","black");   
+                            $(select).attr("r",10);   
+                            
+                    } ).on( 'mouseleave', 'tr', function () {
+                            
+                            $(this).removeClass( 'highlight' );
+                            id = $(this).children(":first").children(":first").attr("id");
+                            $("table #"+id).parent().parent().removeClass('highlight' );
+                            select = "circle#"+$(this).children(":first").children(":first").attr("id");
+                            $(select).css("stroke","none");
+                            $(select).attr("r",5);   
+                            
+                    } );
+                    
+               
+                });
+                
+                
+            } );
+    
+    
+       
+    </script>
+</head>
+<body>
+    <div class="panel">
+        
+        <div class="row">
+            <div id="scrollable-div">
+            <div class="col-xs-7" id = "selection">
+                <table id="example" class="table table-bordered" cellspacing="0">
+                    <thead>
+                        
+                    <tr>
+                        <th title="#">#</th>
+                        <th title="Checking Status">CS</th>
+                        <th title="Credit history">CH</th>
+                        <th title="Purpose">Pur</th>
+                        <th title="Credit Amount">CA</th>
+                        <th title="Savings Status">SS</th>
+                        <th title="Employment">Emp</th>
+                        <th title="Duration">Dur</th>
+                        <th title="Installment Commitment">IC</th>
+                        <th title="Personal Status">PS</th>
+                        <th title="Other Parties">OP</th>
+                        <th title="Residence Since">RS</th>
+                        <th title="Property Magnitude">PM</th>
+                        <th title="Age">Age</th>
+                        <th title="Other Payment Plans">OPP</th>
+                        <th title="Housing">Hou</th>
+                        <th title="Existing Credits">EC</th>
+                        <th title="Job">Job</th>
+                        <th title="Number of Dependents">ND</th>
+                        <th title="Own Telephone">OT</th>
+                        <th title="Foreign Worker">FW</th>
+                        <th title="Coverage">Cov</th>
+                        <th title="Accuracy">Acc</th>
+                        <th title="Length">Len</th>
+                        <th title="Credit Rating">CR</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+               
+
+                
+            </div>
+            
+            <div class="col-xs-4" >
+                 <svg width="200" height="100" id="legends"></svg>
+                <div class="displayMovies">
+                    <svg id="viz"></svg>
+                </div>
+                <div id="tooltip">Tooltip</div>
+            </div>
+        
+            </div>
+        </div>
+        
+        
+    </div>
+     
+</body>
+</html>

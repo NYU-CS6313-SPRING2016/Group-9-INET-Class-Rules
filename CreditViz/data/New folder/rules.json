@@ -1,0 +1,303 @@
+[{
+	"length": 2,
+	"genre": {
+		"Adventure": "p"
+	},
+	"outcome": 3,
+	"coverage": 0.84,
+	"accuracy": 70.00,
+	"directors": {},
+	"imdbrating": {
+		"Low ratings": "p"
+	},
+	"rated": {},
+	"writers": {},
+	"actors": {},
+	"awards": {},
+	"name": "Rule 1",
+	"metascore": {},
+	"votes": {}
+}, {
+	"length": 1,
+	"genre": {},
+	"outcome": 4,
+	"coverage": 3.03,
+	"accuracy": 83.33,
+	"directors": {},
+	"imdbrating": {
+		"Low ratings": "p"
+	},
+	"rated": {},
+	"writers": {},
+	"actors": {},
+	"awards": {},
+	"name": "Rule 2",
+	"metascore": {},
+	"votes": {}
+}, {
+	"length": 5,
+	"genre": {
+		"Sci-Fi": "a",
+		"Adventure": "p"
+	},
+	"outcome": 9,
+	"coverage": 0.42,
+	"accuracy": 100,
+	"directors": {},
+	"imdbrating": {
+		"Mediocre ratings": "a"
+	},
+	"rated": {},
+	"writers": {},
+	"actors": {},
+	"awards": {
+		"More than 80": "p"
+	},
+	"name": "Rule 3",
+	"metascore": {
+		"Good Metascore": "p"
+	},
+	"votes": {}
+}, {
+	"length": 2,
+	"genre": {},
+	"outcome": 9,
+	"coverage": 0.42,
+	"accuracy": 100,
+	"directors": {},
+	"imdbrating": {},
+	"rated": {},
+	"writers": {
+		"JRR Tolkien": "p"
+	},
+	"actors": {},
+	"awards": {},
+	"name": "Rule 4",
+	"metascore": {
+		"Excellent Metascore": "p"
+	},
+	"votes": {}
+}, {
+	"length": 2,
+	"genre": {},
+	"outcome": 9,
+	"coverage": 0.42,
+	"accuracy": 100,
+	"directors": {},
+	"imdbrating": {
+		"Mediocre ratings": "a"
+	},
+	"rated": {},
+	"writers": {
+		"Jonathan Nolan": "p"
+	},
+	"actors": {},
+	"awards": {},
+	"name": "Rule 5",
+	"metascore": {},
+	"votes": {}
+}, {
+	"length": 2,
+	"genre": {},
+	"outcome": 9,
+	"coverage": 0.25,
+	"accuracy": 100,
+	"directors": {
+		"Andrew Stanton": "p"
+	},
+	"imdbrating": {},
+	"rated": {},
+	"writers": {},
+	"actors": {},
+	"awards": {},
+	"name": "Rule 6",
+	"metascore": {
+		"Excellent Metascore": "p"
+	},
+	"votes": {}
+}, {
+	"length": 1,
+	"genre": {},
+	"outcome": 9,
+	"coverage": 0.17,
+	"accuracy": 100,
+	"directors": {
+		"Pete Docter": "p"
+	},
+	"imdbrating": {},
+	"rated": {},
+	"writers": {},
+	"actors": {},
+	"awards": {},
+	"name": "Rule 7",
+	"metascore": {},
+	"votes": {}
+}, {
+	"length": 2,
+	"genre": {},
+	"outcome": 9,
+	"coverage": 0.25,
+	"accuracy": 100,
+	"directors": {},
+	"imdbrating": {},
+	"rated": {},
+	"writers": {},
+	"actors": {
+		"Matt Damon": "p"
+	},
+	"awards": {},
+	"name": "Rule 8",
+	"metascore": {
+		"Excellent Metascore": "p"
+	},
+	"votes": {}
+}, {
+	"length": 1,
+	"genre": {},
+	"outcome": 9,
+	"coverage": 0.17,
+	"accuracy": 100,
+	"directors": {},
+	"imdbrating": {},
+	"rated": {},
+	"writers": {},
+	"actors": {
+		"Holmes Osborne": "p"
+	},
+	"awards": {},
+	"name": "Rule 9",
+	"metascore": {},
+	"votes": {}
+}, {
+	"length": 4,
+	"genre": {
+		"Comedy": "a"
+	},
+	"outcome": 5,
+	"coverage": 1.85,
+	"accuracy": 86.36,
+	"directors": {},
+	"imdbrating": {},
+	"rated": {
+		"R": "a"
+	},
+	"writers": {},
+	"actors": {},
+	"awards": {},
+	"name": "Rule10",
+	"metascore": {
+		"Bad Metascore": "p"
+	},
+	"votes": {
+		"High votes": "p"
+	}
+}, {
+	"length": 4,
+	"genre": {
+		"Comedy": "p",
+		"Adventure": "p"
+	},
+	"outcome": 5,
+	"coverage": 2.53,
+	"accuracy": 73.33,
+	"directors": {},
+	"imdbrating": {},
+	"rated": {
+		"PG-13": "a"
+	},
+	"writers": {},
+	"actors": {},
+	"awards": {},
+	"name": "Rule11",
+	"metascore": {
+		"Bad Metascore": "p"
+	},
+	"votes": {}
+}, {
+	"length": 2,
+	"genre": {},
+	"outcome": 5,
+	"coverage": 0.34,
+	"accuracy": 100,
+	"directors": {},
+	"imdbrating": {},
+	"rated": {},
+	"writers": {
+		"Gerry Swallow": "p"
+	},
+	"actors": {},
+	"awards": {},
+	"name": "Rule12",
+	"metascore": {
+		"Bad Metascore": "p"
+	},
+	"votes": {}
+}, {
+	"length": 1,
+	"genre": {},
+	"outcome": 8,
+	"coverage": 17.51,
+	"accuracy": 97.60,
+	"directors": {},
+	"imdbrating": {
+		"Mediocre ratings": "a"
+	},
+	"rated": {},
+	"writers": {},
+	"actors": {},
+	"awards": {},
+	"name": "Rule13",
+	"metascore": {},
+	"votes": {}
+}, {
+	"length": 1,
+	"genre": {},
+	"outcome": 6,
+	"coverage": 34.85,
+	"accuracy": 72.22,
+	"directors": {},
+	"imdbrating": {},
+	"rated": {},
+	"writers": {},
+	"actors": {},
+	"awards": {},
+	"name": "Rule14",
+	"metascore": {
+		"Bad Metascore": "p"
+	},
+	"votes": {}
+}, {
+	"length": 2,
+	"genre": {},
+	"outcome": 6,
+	"coverage": 8.08,
+	"accuracy": 72.92,
+	"directors": {},
+	"imdbrating": {},
+	"rated": {},
+	"writers": {},
+	"actors": {},
+	"awards": {},
+	"name": "Rule15",
+	"metascore": {
+		"Good Metascore": "a"
+	},
+	"votes": {
+		"Very high votes": "a"
+	}
+}, {
+	"length": 0,
+	"genre": {},
+	"outcome": 7,
+	"coverage": 54.97,
+	"accuracy": 77.79,
+	"directors": {},
+	"imdbrating": {},
+	"rated": {},
+	"writers": {},
+	"actors": {},
+	"awards": {},
+	"name": "Rule16",
+	"metascore": {},
+	"votes": {}
+}]
