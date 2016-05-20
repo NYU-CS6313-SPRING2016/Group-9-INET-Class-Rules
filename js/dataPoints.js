@@ -1,4 +1,3 @@
-
 function renderDataPoints() {
 var width=400,
             height=450,
@@ -89,7 +88,7 @@ function renderChart(data) {
     var xAxis = d3.svg.axis()
                     .scale(xScale)
                     .orient("bottom");
-    var colorScale  = d3.scale.category10().range(["#E6A745", "#FFC300"]);
+    var colorScale  = d3.scale.category10().range(["#2332B8", "#FFC300"]);
     
     xLabel.text("Coverage");
     yLabel.text("Accuracy");
