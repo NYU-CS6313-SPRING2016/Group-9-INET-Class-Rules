@@ -1,0 +1,13 @@
+Rule Number,Coverage,Support,rate
+Rule 1,24,1,6
+Rule 2,69,2,8
+Rule 3,82,96,9
+Rule 4,41,2,6
+Rule 5,31,1,6
+Rule 6,55,0,6
+Rule 7,55,1,7
+Rule 8,30,2,5
+Rule 9,48,6,7
+Rule 10,50,0,6
+Rule 11,69,12,7
+RUle 12,24,0,7

@@ -1,0 +1,75 @@
+{
+  "data": [
+    [
+    "Rule 1",
+    "4",
+    "Barry Pepper",
+    "Romance<br>Thriller",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "6",
+    "<div style='width:25px;height: 17px;border:1px solid #000;color: cornflowerblue;background: #4679BD;'></div>"
+    ],
+    [
+    "Rule 2",
+    "4",
+    "Barry Pepper",
+    "Romance<br>Thriller",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "8",
+    "<div style='width:10px;height: 17px;border:1px solid #000;color: cornflowerblue;background: #4679BD;'></div>"
+    ],
+    [
+    "Rule 3",
+    "4",
+    "Barry Pepper",
+    "Romance<br>Thriller",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "4",
+    "<div style='width:100px;height: 17px;border:1px solid #000;color: cornflowerblue;background: #4679BD;'></div>"
+    ],
+    [
+    "Rule 4",
+    "4",
+    "Barry Pepper",
+    "Romance<br>Thriller",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "4",
+    "<div style='width:35px;height: 17px;border:1px solid #000;color: cornflowerblue;background: #4679BD;'></div>"
+    ],
+    [
+    "Rule 5",
+    "4",
+    "Barry Pepper",
+    "Romance<br>Thriller",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "4",
+    "<div style='width:70px;height: 17px;border:1px solid #000;color: cornflowerblue;background: #4679BD;'></div>"
+    ]
+]
+}
+
